@@ -9,29 +9,30 @@
 
         <header>
             <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+                Sentiment Analysis with MeaningCloud
             </div>
         </header>
 
         <main>
             <section>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Text that you want to analyse">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+                <strong>Results</strong>
+                <p><strong>Agreement: </strong><span id="agreement"></span></p>
+                <p><strong>Subjectivity: </strong><span id="subjectivity"></span></p>
+                <p><strong>Confidence: </strong><span id="confidence"></span></p>
+                <p><strong>Irony: </strong><span id="irony"></span></p>
+
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>npalimaka 2021</p>
         </footer>
 
     </body>

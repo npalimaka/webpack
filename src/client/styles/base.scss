@@ -11,4 +11,14 @@ main {
 section {
     max-width: 800px;
     margin: 50px auto;
+
+    p {
+        padding: 5px;
+    }
+}
+
+header, footer {
+    background-color: #017e7e;
+    color: #fff;
+    font-family: monospace;
 }
