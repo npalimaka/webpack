@@ -3,6 +3,8 @@ function handleSubmit(event) {
     // check what text was put into the form field
     let formText = document.getElementById('text').value
 
+    Client.validate(formText);
+
     console.log("::: Form Submitted :::")
 
     Client.getKey().then(res => postData(`https://api.meaningcloud.com/sentiment-2.1?key=${res.key}&lang=en&txt=${formText}`)
