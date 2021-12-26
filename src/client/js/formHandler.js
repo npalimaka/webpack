@@ -6,11 +6,13 @@ function handleSubmit(event) {
 
     console.log("::: Form Submitted :::")
 
-    getKey().then(res => postData(`https://api.meaningcloud.com/sentiment-2.1?key=${res.key}&lang=en&txt=${formText}`)
-    .then(res => document.getElementById('results').innerHTML = JSON.stringify(res), err => alert(err)))
-    // .then(function(res) {
-    //     document.getElementById('results').innerHTML = res.message
-    // })
+    Client.getKey().then(res => postData(`https://api.meaningcloud.com/sentiment-2.1?key=${res.key}&lang=en&txt=${formText}`)
+    .then(res => {
+        document.getElementById('agreement').innerHTML = JSON.stringify(res.agreement);
+        document.getElementById('subjectivity').innerHTML = JSON.stringify(res.subjectivity);
+        document.getElementById('confidence').innerHTML = JSON.stringify(res.confidence);
+        document.getElementById('irony').innerHTML = JSON.stringify(res.irony);
+    }, err => alert(err)))
 }
 
 const postData = async (url = '', data = {}) => {
@@ -26,16 +28,6 @@ const postData = async (url = '', data = {}) => {
     } catch (error) {
         const message = error ? error : '';
         return alert(`Problem with POST request! ${message}`);
-    }
-}
-
-const getKey = async () => {
-    const req = await fetch('http://localhost:8081/key');
-    try {
-        return await req.json();
-    } catch (error) {
-        const message = error ? error : '';
-        alert(`Problem with GET request! ${message}`);
     }
 }
 
