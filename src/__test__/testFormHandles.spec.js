@@ -15,7 +15,8 @@ describe("Testing the submit functionality", () => {
             getKey: () => { return new Promise((resolve, reject) => {
                 process.nextTick(() =>
                     resolve({res: 'test'})
-                )})}
+                )})},
+            validate: () => {}
         }
         window.alert = {}
 
